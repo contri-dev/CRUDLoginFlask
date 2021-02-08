@@ -1,0 +1,25 @@
+{% from 'form_helper.html' import displayField%}
+{% extends 'prelogin.html' %}
+{% block title %} Update {% endblock %}
+{% block content %}
+<div class="container">
+<form action="{{ url_for('update') }}", method="POST" class="form-group row">
+  <div class="form-group mb-2">
+    <h1 class="display-2">Atualizar Dados</h1>
+    {{ displayField(form.nome, 'Nome', autocomplete="off", autofocus=true)}}
+    {{ displayField(form.cpf, 'CPF')}}
+    {{ displayField(form.cep, 'CEP')}}
+    {{ displayField(form.email, 'Email')}}
+    {{ displayField(form.telefone, 'Telefone')}}
+    {{ displayField(form.username, 'Usuario')}}
+    {{ email }}
+    <div>
+      {{ form.submit_button(class_='btn btn-outline-dark') }}
+      <a class="btn btn-outline-danger" href="http://127.0.0.1:5000/checkout" role="button">Cancelar</a>
+    </div>
+</div>
+  {{ form.csrf_token }}
+
+</form>
+</div>
+{% endblock %}

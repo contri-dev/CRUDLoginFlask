@@ -1,0 +1,36 @@
+{% from 'form_helper.html' import displayField%}
+{% extends 'prelogin.html' %}
+{% block title %} Checkout {% endblock %}
+{% block content %}
+{% if inexistente == True %}
+    <div class="container">
+      <h1 class="display-2">Confirme seus dados!</h1>
+      <li class="list-group-item">Nome: {{nome}}</li>
+      <li class="list-group-item">CPF: {{cpf}}</li>
+      <li class="list-group-item">Email: {{email}}</li>
+      <div class="alert alert-danger" role="alert">{{erro}}  </div>
+      <a class="btn btn-outline-dark" href="#" role="button">Confirmar</a>
+      <a class="btn btn-dark" href="http://127.0.0.1:5000/update" role="button">Alterar</a>
+      <a class="btn btn-outline-danger" href="http://127.0.0.1:5000/logout" role="button">Logout</a>
+    </div>
+    {% else %}
+      <div class="container">
+        <form action="{{ url_for('checkout') }}", method="POST">
+        <h1 class="display-2">Confirme seus dados!</h1>
+        <li class="list-group-item">Nome: {{nome}}</li>
+        <li class="list-group-item">CPF: {{cpf}}</li>
+        <li class="list-group-item">Email: {{email}}</li>
+        <li class="list-group-item">CEP: {{cep}}</li>
+        <li class="list-group-item">Rua: {{rua}}</li>
+        <li class="list-group-item">Bairro: {{bairro}}</li>
+        <li class="list-group-item">Cidade: {{cidade}}</li>
+        <li class="list-group-item">Estado: {{estado}}</li>
+        <li class="list-group-item">DDD: {{ddd}}</li>
+        <a class="btn btn-outline-dark" href="#" role="button">Confirmar</a>
+        <a class="btn btn-dark" href="http://127.0.0.1:5000/update" role="button">Alterar</a>
+        <a class="btn btn-outline-danger" href="http://127.0.0.1:5000/logout" role="button">Logout</a>
+        {{ form.submit_button(class_='btn btn-danger') }} {{ form.csrf_token }}
+      </form>
+      </div>
+    {% endif %}
+{% endblock %}

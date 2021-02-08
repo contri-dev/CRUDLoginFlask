@@ -1,0 +1,10 @@
+{% from 'form_helper.html' import displayField%}
+{% extends 'prelogin.html' %}
+{% block title %} Login necessário {% endblock %}
+{% block content %}
+<div class="container">
+<h1 class="display-4">É necessário estar logado para acessar esta pagina!</h1>
+<a class="btn btn-dark" href="http://127.0.0.1:5000/login" role="button">Faça Login</a>
+<a class="btn btn-dark" href="http://127.0.0.1:5000/" role="button">Ainda não tem uma conta? Registre-se</a>
+</div>
+{% endblock %}
